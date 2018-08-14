@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <title>Copy</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group mt-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" data-clipboard-target="#copytext"><i class="fas fa-copy"></i></button>
+        </div>
+        <input type="text" class="form-control" id="copytext" value="Copy me!">
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js" integrity="sha256-hIvIxeqhGZF+VVeM55k0mJvWpQ6gTkWk3Emc+NmowYA=" crossorigin="anonymous"></script>
+    <script>
+      var clipboard = new ClipboardJS('.btn');
+      clipboard.on("success",function(e){showTooltip(e.trigger,"Copied!",1500)});
+      clipboard.on("error",function(e){showTooltip(e.trigger,"Press Strg + C",3000)});
+      function showTooltip(trigger, message, time) {
+        $(trigger).tooltip({title:message,trigger:"manual",placement:"right"}).tooltip("show");
+        setTimeout(function(){$(trigger).tooltip("hide")},time);
+      }
+    </script>
+  </body>
+</html>
